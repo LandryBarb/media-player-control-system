@@ -1,7 +1,7 @@
 @use "sass:map";
 @use "../settings" as settings;
 
-.site-nav {
+.site-navigation {
   display: flex;
   align-items: center;
   gap: map.get(settings.$space-scale, md);
@@ -30,7 +30,7 @@
 }
 
 // Desktop nav
-.site-nav__list {
+.site-navigation__list {
   display: flex;
   align-items: center;
   gap: map.get(settings.$space-scale, md);
@@ -39,14 +39,14 @@
   padding: 0;
 }
 
-.site-nav__link {
+.site-navigation__link {
   display: inline-flex;
   align-items: center;
-  padding-block: map.get(settings.$space-scale, xs);
-  padding-inline: map.get(settings.$space-scale, sm);
+  padding-block: map.get(settings.$space-scale, sm);
+  padding-inline: map.get(settings.$space-scale, md);
   border-radius: 999px;
   text-decoration: none;
-  font-size: map.get(settings.$font-size-scale, 1);
+  font-size: map.get(settings.$font-size-scale, 0);
   color: var(--color-text-muted);
 
   &:hover {

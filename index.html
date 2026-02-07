@@ -1,8 +1,9 @@
 <!doctype html>
 <html lang="en" class="theme-dark">
+
 <head>
   <meta charset="utf-8" />
-  <title>Page Title</title>
+  <title>Media Player Control System</title>
 
   <!-- Basic responsive + color-scheme support -->
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -14,29 +15,70 @@
   <!-- Styles (adjust path to match your build setup) -->
   <link rel="stylesheet" href="/css/main.css" />
 </head>
+
 <body>
   <!-- Skip link for keyboard users -->
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <header class="site-header">
-    <div class="site-header__inner">
-      <a class="site-header__brand" href="/">
-        <span class="site-header__logo" aria-hidden="true">◎</span>
-        <span class="site-header__title">Site Name</span>
-      </a>
+  <!-- Component 1: Top Navigation Bar -->
+  <header class="site-header" role="banner">
+    <div class="container-fluid">
+      <div class="site-header__inner">
+      <div class="site-header__left">
+        <a class="site-header__brand" href="/" aria-label="Streamverse home">
+          <img src="./assets/game.png" alt="Streamverse Logo" class="brand__logo">
+          <span class="brand__name">Streamverse</span>
+        </a>
+       
+      </div>
+      <div class="site-header__middle">
+         <!-- Primary Navigation -->
+        <nav class="site-navigation" aria-label="Primary Navigation">
+          <ul class="site-navigation__list">
+            <li>
+              <a href="/movies" class="site-navigation__link" aria-current="page">
+                Movies
+              </a>
+            </li>
+            <li>
+              <a href="/series" class="site-navigation__link">Series</a>
+            </li>
+            <li>
+              <a href="/live" class="site-navigation__link">Live</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="site-header__right">
+        <div class="user-profile">
+          <button type="button" id="profileToggle" class="user-profile__toggle" aria-haspopup="menu"
+            aria-expanded="false" aria-controls="profileMenu">
+            <img src="./assets/user.jpg" alt="User profile picture" class="user-profile__avatar" />
+            <span class="user-profile__arrow" aria-hidden="true">▼</span>
+            <!-- Must announce interaction for user -->
+            <span class="u-visually-hidden">Open profile Menu</span>
+          </button>
 
-      <nav class="site-nav" aria-label="Primary">
-        <button class="site-nav__toggle" type="button" aria-expanded="false">
-          <span class="site-nav__toggle-label">Menu</span>
-        </button>
-
-        <ul class="site-nav__list">
-          <li><a class="site-nav__link" href="#section-intro">Intro</a></li>
-          <li><a class="site-nav__link" href="#section-content">Content</a></li>
-          <li><a class="site-nav__link" href="#section-contact">Contact</a></li>
-        </ul>
-      </nav>
+          <ul id="profileMenu" class="user-profile__menu" role="menu" hidden>
+            <a role="menuitem" class="user-profile__menu-link" href="/profile">
+              Profile
+            </a>
+            <a role="menuitem" class="user-profile__menu-link" href="/account-billing">
+              Account &amp; Billing
+            </a>
+            <a role="menuitem" class="user-profile__menu-link" href="/playback-settings">
+              Playback Settings
+            </a>
+            <div class="divider" role="separator" aria-orientation="horizontal"></div>
+            <button role="menuitem" class="user-profile__menu-link user-profile__menu-link--danger" href="/">
+              Sign out of Streamverse
+            </button>
+          </ul>
+        </div>
+      </div>
     </div>
+    </div>
+    
   </header>
 
   <main id="main" class="site-main" tabindex="-1">
@@ -105,4 +147,5 @@
   <!-- Scripts (TypeScript will compile to this JS entry; adjust path as needed) -->
   <script type="module" src="/js/main.js"></script>
 </body>
+
 </html>

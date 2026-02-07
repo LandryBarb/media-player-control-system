@@ -1,0 +1,91 @@
+// src/scss/blocks/_button.scss
+@use "sass:map";
+@use "../settings" as settings;
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: map.get(settings.$space-scale, xs);
+  padding-inline: map.get(settings.$space-scale, md);
+  padding-block: map.get(settings.$space-scale, xs);
+  border-radius: 999px;
+  border: 1px solid var(--color-border-subtle);
+  background-color: var(--color-surface-soft);
+  color: var(--color-text-main);
+  font-weight: map.get(settings.$font-weight-scale, medium);
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease,
+    box-shadow 0.15s ease,
+    border-color 0.15s ease;
+
+  &:hover {
+    background-color: var(--color-surface-raised);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-focus-ring);
+    outline-offset: 2px;
+  }
+}
+
+.button--primary {
+  border-color: transparent;
+  background-color: var(--color-brand-primary);
+  color: var(--color-text-on-brand);
+
+  &:hover {
+    background-color: var(--color-brand-primary-strong);
+  }
+}
+.button--secondary {
+  background-color: var(--color-surface-soft);
+  color: var(--color-text-main);
+
+  &:hover {
+    background-color: var(--color-surface-raised);
+  }
+} 
+
+//3D Button Style
+.button--3d {
+  // Use Core token for background
+  --_btn-color: var(--color-brand-primary); 
+  --_btn-text: var(--color-text-on-brand);
+  
+  background: transparent;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  outline-offset: 4px;
+  
+  .front {
+    display: block;
+    padding: map.get(settings.$space-scale, xs) map.get(settings.$space-scale, md);
+    border-radius: 999px;
+    background-color: var(--_btn-color);
+    color: var(--_btn-text);
+    transform: translateY(-4px);
+    transition: transform 250ms cubic-bezier(.3, .7, .4, 1);
+    border: 1px solid rgba(0,0,0,0.2);
+  }
+
+  // The "Shadow" layer
+  background-color: color-mix(in srgb, var(--_btn-color), black 20%);
+  border-radius: 999px;
+
+  &:hover .front {
+    transform: translateY(-6px);
+  }
+
+  &:active .front {
+    transform: translateY(-1px);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-focus-ring);
+  }
+}

@@ -1,0 +1,66 @@
+// src/scss/base/_elements.scss
+@use "sass:map";
+@use "../settings" as settings;
+
+html {
+  font-size: 100%; // respects user default (accessibility)
+}
+
+body {
+  font-family: map.get(settings.$typography-semantic, body-font-family);
+  font-size:   map.get(settings.$typography-semantic, body-size);
+  line-height: map.get(settings.$typography-semantic, body-line-height);
+  font-weight: map.get(settings.$typography-semantic, body-weight);
+  background-color: var(--color-surface);
+  color:            var(--color-text-main);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: map.get(settings.$typography-semantic, heading-font-family);
+  font-weight: map.get(settings.$typography-semantic, heading-weight);
+}
+
+h1 { font-size: map.get(settings.$typography-semantic, h1-size); }
+h2 { font-size: map.get(settings.$typography-semantic, h2-size); }
+h3 { font-size: map.get(settings.$typography-semantic, h3-size); }
+h4 { font-size: map.get(settings.$typography-semantic, h4-size); }
+
+code,
+pre {
+  font-family: map.get(settings.$typography-semantic, code-font-family);
+  font-size:   map.get(settings.$typography-semantic, code-size);
+}
+
+// Skip link for keyboard users
+.skip-link {
+  position: fixed;
+  inset-inline-start: map.get(settings.$space-scale, md);
+  inset-block-start: map.get(settings.$space-scale, md);
+  z-index: 1000;
+  padding-inline: map.get(settings.$space-scale, md);
+  padding-block: map.get(settings.$space-scale, xs);
+  border-radius: 999px;
+  background-color: var(--color-brand-primary);
+  color: var(--color-text-on-brand);
+  font-weight: map.get(settings.$font-weight-scale, medium);
+  text-decoration: none;
+  transform: translateY(-150%);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+  &:focus-visible {
+    transform: translateY(0);
+    outline: none;
+    box-shadow: 0 0 0 2px var(--color-surface), 0 0 0 4px var(--color-focus-ring);
+  }
+}
+
+// Main layout shell
+.site-main {
+  max-width: 72rem;
+  margin-inline: auto;
+  padding-inline: map.get(settings.$space-scale, lg);
+  padding-block: map.get(settings.$space-scale, xl);
+}

@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en" class="theme-dark">
+<head>
+  <meta charset="utf-8" />
+  <title>Page Title</title>
+
+  <!-- Basic responsive + color-scheme support -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+
+  <!-- Metadata -->
+  <meta name="description" content="Short description of this page." />
+
+  <!-- Styles (adjust path to match your build setup) -->
+  <link rel="stylesheet" href="/css/main.css" />
+</head>
+<body>
+  <!-- Skip link for keyboard users -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-header__brand" href="/">
+        <span class="site-header__logo" aria-hidden="true">◎</span>
+        <span class="site-header__title">Site Name</span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary">
+        <button class="site-nav__toggle" type="button" aria-expanded="false">
+          <span class="site-nav__toggle-label">Menu</span>
+        </button>
+
+        <ul class="site-nav__list">
+          <li><a class="site-nav__link" href="#section-intro">Intro</a></li>
+          <li><a class="site-nav__link" href="#section-content">Content</a></li>
+          <li><a class="site-nav__link" href="#section-contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="site-main" tabindex="-1">
+    <section id="section-intro" class="section section--intro" aria-labelledby="section-intro-heading">
+      <header class="section__header">
+        <h1 id="section-intro-heading">Main page heading</h1>
+        <p class="section__lead">
+          Short lead-in sentence describing what this page is about.
+        </p>
+      </header>
+    </section>
+
+    <section id="section-content" class="section section--content" aria-labelledby="section-content-heading">
+      <header class="section__header">
+        <h2 id="section-content-heading">Content section</h2>
+      </header>
+
+      <article class="card" aria-labelledby="card-example-heading">
+        <header class="card__header">
+          <h3 id="card-example-heading">Example article/card</h3>
+        </header>
+        <div class="card__body">
+          <p>
+            Replace this with the semantic structure for the specific pattern
+            you are demonstrating (e.g., tabs, dialog, carousel).
+          </p>
+        </div>
+      </article>
+    </section>
+
+    <section id="section-contact" class="section section--contact" aria-labelledby="section-contact-heading">
+      <header class="section__header">
+        <h2 id="section-contact-heading">Contact</h2>
+      </header>
+
+      <form class="form" action="#" method="post" novalidate>
+        <div class="form__field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" autocomplete="name" required />
+        </div>
+
+        <div class="form__field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required />
+        </div>
+
+        <div class="form__field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="4"></textarea>
+        </div>
+
+        <button class="button button--primary" type="submit">Send</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <p class="site-footer__copy">
+        © <span data-year>2026</span> Your Name. All rights reserved.
+      </p>
+      <a class="site-footer__link" href="/privacy-policy.html">Privacy Policy</a>
+    </div>
+  </footer>
+
+  <!-- Scripts (TypeScript will compile to this JS entry; adjust path as needed) -->
+  <script type="module" src="/js/main.js"></script>
+</body>
+</html>

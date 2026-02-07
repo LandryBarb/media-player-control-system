@@ -1,0 +1,10 @@
+// src/scss/utilities/_display.scss
+
+// Generic display utilities.  Avoid hiding interactive content with display:none;
+// it removes elements from the accessibility tree:contentReference[oaicite:0]{index=0}.
+.u-block       { display: block !important; }
+.u-inline      { display: inline !important; }
+.u-inline-block{ display: inline-block !important; }
+.u-flex        { display: flex !important; }
+.u-grid        { display: grid !important; }
+.u-hidden      { display: none !important; } // use only for purely decorative elements

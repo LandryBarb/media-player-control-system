@@ -1,0 +1,42 @@
+// src/scss/blocks/_form.scss
+@use "sass:map";
+@use "../settings" as settings;
+
+.form {
+  display: grid;
+  gap: map.get(settings.$space-scale, md);
+  max-width: 32rem;
+}
+
+.form__field {
+  display: grid;
+  gap: map.get(settings.$space-scale, xs);
+}
+
+.form__field label {
+  font-weight: map.get(settings.$font-weight-scale, medium);
+  color: var(--color-text-main);
+}
+
+.form__field input,
+.form__field textarea {
+  font: inherit;
+  padding-inline: map.get(settings.$space-scale, sm);
+  padding-block: map.get(settings.$space-scale, xs);
+  border-radius: 0.375rem;
+  border: 1px solid var(--color-border-subtle);
+  background-color: var(--color-surface-soft);
+  color: var(--color-text-main);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+
+  &:focus-visible {
+    outline: 2px solid var(--color-focus-ring);
+    outline-offset: 2px;
+    border-color: transparent;
+  }
+}
+
+.form__field textarea {
+  resize: vertical;
+  min-height: 6rem;
+}

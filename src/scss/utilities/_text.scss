@@ -1,0 +1,20 @@
+// src/scss/utilities/_text.scss
+
+@use "../settings" as *;
+
+/* Alignment */
+.u-text-left    { text-align: left !important; }
+.u-text-center  { text-align: center !important; }
+.u-text-right   { text-align: right !important; }
+.u-text-justify { text-align: justify !important; text-justify: inter-word !important; }
+
+/* Wrapping and truncation */
+.u-text-wrap      { white-space: normal !important; word-wrap: break-word !important; }
+.u-text-nowrap    { white-space: nowrap !important; overflow: hidden !important; text-overflow: ellipsis !important; }
+.u-text-truncate  { overflow: hidden !important; white-space: nowrap !important; text-overflow: ellipsis !important; }
+/* For truncated text, consider adding a title attribute in HTML to provide the full value for screen‑reader users and tooltips. */
+
+/* Monospace text (for code blocks) */
+.u-text-mono {
+  font-family: $font-family-mono !important;
+}

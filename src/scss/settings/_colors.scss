@@ -1,0 +1,210 @@
+// src/scss/settings/_colors.scss
+@use "sass:map";
+// -----------------------------
+// Raw hue maps (only ones we need right now)
+// -----------------------------
+
+$colors-gray: (
+  50:  #fafafa,
+  100: #f4f4f5,
+  200: #e4e4e7,
+  300: #d4d4d8,
+  400: #a1a1aa,
+  500: #71717a,
+  600: #52525b,
+  700: #3f3f46,
+  800: #27272a,
+  900: #18181b,
+  1000:#0f0f10
+);
+
+$colors-cinema-blue: (
+  50:  #edf5ff,
+  100: #d1e4ff,
+  200: #a5c8ff,
+  300: #7aaaff,
+  400: #4e8cff,
+  500: #2563eb,
+  600: #1d4ed8,
+  700: #163ba8,
+  800: #102a78,
+  900: #0a1b4a,
+  1000:#050e25
+);
+
+$colors-amber: (
+  50:  #fff4e5,
+  100: #ffe1b5,
+  200: #ffcb82,
+  300: #ffb34f,
+  400: #ff9d22,
+  500: #f48b0c,
+  600: #d37307,
+  700: #a85a07,
+  800: #7c4205,
+  900: #522c03,
+  1000:#311a01
+);
+
+$colors-noir: (
+  50:  #f6f6f7,
+  100: #dcdcde,
+  200: #b8b8bb,
+  300: #949498,
+  400: #707074,
+  500: #4e4e53,
+  600: #3a3a3f,
+  700: #29292e,
+  800: #1b1b20,
+  900: #101014,
+  1000:#06060a
+);
+
+// state hues
+$colors-red: (
+  50:  #fef2f2,
+  100: #fee2e2,
+  200: #fecaca,
+  300: #fca5a5,
+  400: #f87171,
+  500: #ef4444,
+  600: #dc2626,
+  700: #b91c1c,
+  800: #991b1b,
+  900: #7f1d1d,
+  1000:#431010
+);
+
+$colors-green: (
+  50:  #f0fdf4,
+  100: #dcfce7,
+  200: #bbf7d0,
+  300: #86efac,
+  400: #4ade80,
+  500: #22c55e,
+  600: #16a34a,
+  700: #15803d,
+  800: #166534,
+  900: #14532d,
+  1000:#0d3b20
+);
+
+$colors-cyan: (
+  50:  #ecfeff,
+  100: #cffafe,
+  200: #a5f3fc,
+  300: #67e8f9,
+  400: #22d3ee,
+  500: #06b6d4,
+  600: #0891b2,
+  700: #0e7490,
+  800: #155e75,
+  900: #164e63,
+  1000:#0d3444
+);
+
+// Optional: master hues map if you ever need to introspect
+$colors-hues: (
+  "gray":         $colors-gray,
+  "cinema-blue":  $colors-cinema-blue,
+  "amber":        $colors-amber,
+  "noir":         $colors-noir,
+  "red":          $colors-red,
+  "green":        $colors-green,
+  "cyan":         $colors-cyan
+);
+
+
+// -----------------------------
+// Semantic color maps (D)
+// -----------------------------
+//
+// These are the names you use in UI thinking:
+//   - brand-primary
+//   - surface
+//   - text-muted
+//   - border-subtle
+// etc.
+//
+// Light theme (default) uses gray as base surface,
+// cinema-blue as brand, amber as accent.
+
+$colors-light-semantic: (
+  "brand-primary":         map.get($colors-cinema-blue, 600),
+  "brand-primary-soft":    map.get($colors-cinema-blue, 100),
+  "brand-primary-strong":  map.get($colors-cinema-blue, 700),
+
+  "surface":               map.get($colors-gray, 50),
+  "surface-soft":          map.get($colors-gray, 100),
+  "surface-raised":        #ffffff,
+  "surface-inverse":       map.get($colors-noir, 900),
+
+  "text-main":             map.get($colors-gray, 900),
+  "text-muted":            map.get($colors-gray, 600),
+  "text-subtle":           map.get($colors-gray, 500),
+  "text-on-brand":         #ffffff,
+  "text-on-accent":        #111111,
+
+  "border-subtle":         map.get($colors-gray, 200),
+  "border-strong":         map.get($colors-gray, 400),
+
+  "accent":                map.get($colors-amber, 500),
+  "accent-soft":           map.get($colors-amber, 100),
+  "focus-ring":            map.get($colors-amber, 400),
+
+  "state-danger":          map.get($colors-red, 600),
+  "state-danger-soft":     map.get($colors-red, 100),
+  "state-success":         map.get($colors-green, 600),
+  "state-success-soft":    map.get($colors-green, 100),
+  "state-info":            map.get($colors-cyan, 600),
+  "state-info-soft":       map.get($colors-cyan, 100)
+);
+
+
+// -----------------------------
+// Dark theme semantic map (E)
+// -----------------------------
+//
+// Dark surfaces from noir, brand slightly lighter,
+// text flipped to light-on-dark, accent slightly softened.
+
+$colors-dark-semantic: (
+  "brand-primary":         map.get($colors-cinema-blue, 400),
+  "brand-primary-soft":    map.get($colors-cinema-blue, 200),
+  "brand-primary-strong":  map.get($colors-cinema-blue, 500),
+
+  "surface":               map.get($colors-noir, 900),
+  "surface-soft":          map.get($colors-noir, 800),
+  "surface-raised":        map.get($colors-noir, 700),
+  "surface-inverse":       #ffffff,
+
+  "text-main":             map.get($colors-gray, 50),
+  "text-muted":            map.get($colors-gray, 300),
+  "text-subtle":           map.get($colors-gray, 400),
+  "text-on-brand":         #f9fafb,
+  "text-on-accent":        #111827,
+
+  "border-subtle":         map.get($colors-noir, 600),
+  "border-strong":         map.get($colors-noir, 400),
+
+  "accent":                map.get($colors-amber, 400),
+  "accent-soft":           map.get($colors-amber, 200),
+  "focus-ring":            map.get($colors-amber, 300),
+
+  "state-danger":          map.get($colors-red, 500),
+  "state-danger-soft":     map.get($colors-red, 200),
+  "state-success":         map.get($colors-green, 500),
+  "state-success-soft":    map.get($colors-green, 200),
+  "state-info":            map.get($colors-cyan, 500),
+  "state-info-soft":       map.get($colors-cyan, 200)
+);
+
+
+// -----------------------------
+// Theme map (C, useful if you ever want to iterate by theme)
+// -----------------------------
+
+$colors-themes: (
+  "light": $colors-light-semantic,
+  "dark":  $colors-dark-semantic
+);

@@ -1,0 +1,34 @@
+// src/scss/blocks/_footer.scss
+@use "sass:map";
+@use "../settings" as settings;
+
+.site-footer {
+  border-top: 1px solid var(--color-border-subtle);
+  background-color: var(--color-surface);
+  padding-block: map.get(settings.$space-scale, md);
+}
+
+.site-footer__inner {
+  max-width: 72rem;
+  margin-inline: auto;
+  padding-inline: map.get(settings.$space-scale, lg);
+}
+
+.site-footer__copy {
+  font-size: map.get(settings.$font-size-scale, 1);
+  color: var(--color-text-muted);
+}
+.site-footer__link {
+  color: var(--color-text-muted);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+    color: var(--color-text-main);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-focus-ring);
+    outline-offset: 2px;
+  }
+}

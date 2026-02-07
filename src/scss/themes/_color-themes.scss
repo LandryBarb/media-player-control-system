@@ -1,0 +1,17 @@
+// src/scss/themes/_colors.scss
+
+@use "../settings" as *;
+
+// Light theme: default
+:root {
+  @each $token, $value in $colors-light-semantic {
+    --color-#{$token}: #{$value};
+  }
+}
+
+// Dark theme: opt-in via .theme-dark on <html> or <body>
+.theme-dark {
+  @each $token, $value in $colors-dark-semantic {
+    --color-#{$token}: #{$value};
+  }
+}

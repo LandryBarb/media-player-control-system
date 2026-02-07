@@ -1,0 +1,41 @@
+// src/scss/utilities/_spacing.scss
+@use "sass:map";
+@use "../settings" as *;
+
+// Create margin utilities (m = all sides, mt = top, me = inline-end, etc.)
+@each $key, $value in $space-scale {
+  .u-m-#{$key}   { margin: #{$value} !important; }
+  .u-mt-#{$key}  { margin-block-start: #{$value} !important; }
+  .u-mr-#{$key}  { margin-inline-end: #{$value} !important; }
+  .u-mb-#{$key}  { margin-block-end: #{$value} !important; }
+  .u-ml-#{$key}  { margin-inline-start: #{$value} !important; }
+  .u-mx-#{$key}  { margin-inline: #{$value} !important; }
+  .u-my-#{$key}  { margin-block: #{$value} !important; }
+}
+
+// Create padding utilities (p = all sides, pt = top, etc.)
+@each $key, $value in $space-scale {
+  .u-p-#{$key}   { padding: #{$value} !important; }
+  .u-pt-#{$key}  { padding-block-start: #{$value} !important; }
+  .u-pr-#{$key}  { padding-inline-end: #{$value} !important; }
+  .u-pb-#{$key}  { padding-block-end: #{$value} !important; }
+  .u-pl-#{$key}  { padding-inline-start: #{$value} !important; }
+  .u-px-#{$key}  { padding-inline: #{$value} !important; }
+  .u-py-#{$key}  { padding-block: #{$value} !important; }
+}
+
+// Accessible vertical spacing: cap very large margins to avoid huge gaps at 400% zoom:contentReference[oaicite:7]{index=7}.
+.u-flow-lg {
+  margin-block-start: min(8rem, 16vh); // fallback to your lg spacing and 16% of viewport height
+}
+.u-flow-xl {
+  margin-block-start: min(16rem, 30vh);
+}
+// The older code used .flow > *:not(:first-child). 
+// This is the modern, robust version using logical properties.
+.u-flow > * + * {
+  margin-block-start: var(--flow-space, 1em);
+}
+
+// Now you can compose this with your existing spacing scale:
+// <div class="u-flow" style="--flow-space: var(--space-xl)"> ... </div>

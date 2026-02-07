@@ -1,0 +1,56 @@
+// src/scss/generic/_reset.scss
+
+// 1. Enable scroll-behaviour only when focusing within the page (smooth jump links).
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+// 2. Set body defaults: ensure the body fills at least the viewport height, set an accessible line-height, and enable better text rendering:contentReference[oaicite:8]{index=8}.
+body {
+  min-height: 100vh;
+  line-height: 1.5;               // WCAG recommends 1.5 line height for readability:contentReference[oaicite:9]{index=9}.
+  -webkit-font-smoothing: antialiased; // Better text rendering on macOS and iOS:contentReference[oaicite:10]{index=10}.
+  text-rendering: optimizeSpeed;  // Avoid expensive ligature rendering by default:contentReference[oaicite:11]{index=11}.
+}
+
+// 3. Prevent text overflowing its container:contentReference[oaicite:12]{index=12}.
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+// 4. Use modern text-wrapping.  'pretty' improves raggedness in paragraphs; 'balance' makes headings more balanced:contentReference[oaicite:13]{index=13}.
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+// 5. Create a root stacking context.  This prevents z-index issues by isolating your app from the rest of the document:contentReference[oaicite:14]{index=14}.
+#root,
+#__next {
+  isolation: isolate;
+}
+
+// 6. Respect reduced‑motion preferences.  Disable animations, transitions, and smooth scroll when the user requests reduced motion:contentReference[oaicite:15]{index=15}.
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

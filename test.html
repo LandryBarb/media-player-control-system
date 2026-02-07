@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Skip link for keyboard users -->
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <!-- Component 1: Top Navigation Bar -->
+    <div
+        style="width:100%; background:#101010; color:#f2f2f2; font-family:Arial, sans-serif; font-size:12px; box-sizing:border-box;">
+        <div
+            style="max-width:1200px; margin:0 auto; padding:6px 14px; display:flex; align-items:center; justify-content:space-between;">
+            <div style="display:flex; align-items:center; gap:18px;">
+                <div style="display:flex; align-items:center; gap:8px; cursor:pointer;"> <img
+                        src="https://via.placeholder.com/28x28" alt="image1" style="display:block; border-radius:4px;">
+                    <div style="font-size:15px; letter-spacing:1px; text-transform:uppercase;">Streamverse</div>
+                </div>
+
+                <div style="display:flex; gap:14px; margin-left:22px;">
+                    <div style="padding:6px 10px; cursor:pointer; border-radius:2px; background:#101010; color:#f2f2f2;"
+                        onclick="window.fakeLiveClick && window.fakeLiveClick()">
+                        Live
+                    </div>
+                    <div
+                        style="padding:6px 10px; cursor:pointer; border-radius:2px; background:#202020; color:#f2f2f2;">
+                        Browse
+                    </div>
+                    <div
+                        style="padding:6px 10px; cursor:pointer; border-radius:2px; background:#101010; color:#999999;">
+                        My List
+                    </div>
+                </div>
+            </div>
+
+            <div style="display:flex; align-items:center; gap:16px;">
+                <div
+                    style="background:#181818; padding:4px 8px; border-radius:50px; display:flex; align-items:center; gap:6px;">
+                    <span style="font-size:10px; text-transform:uppercase; color:#888;">Now</span>
+                    <span style="font-size:11px;">Sci-Fi Marathon</span>
+                    <span
+                        style="width:6px; height:6px; border-radius:50%; background:#ff0000; display:inline-block;"></span>
+                </div>
+
+                <div style="position:relative;">
+                    <div id="navProfileToggle"
+                        style="display:flex; align-items:center; gap:8px; cursor:pointer; padding:4px 6px; border-radius:14px; background:#181818;"
+                        onclick="(function(){var m=document.getElementById('navProfileMenu'); if(m){ m.style.display = m.style.display === 'block' ? 'none' : 'block'; } })()">
+                        <img src="https://via.placeholder.com/26x26" alt="" style="display:block; border-radius:50%;">
+                        <div style="display:flex; flex-direction:column;">
+                            <span style="font-size:11px;">Alex</span>
+                            <span style="font-size:9px; color:#bbbbbb;">Premium</span>
+                        </div>
+                        <span style="font-size:8px; color:#bbbbbb;">▼</span>
+                    </div>
+
+                    <div id="navProfileMenu"
+                        style="display:none; position:absolute; right:0; margin-top:6px; background:#181818; border-radius:4px; padding:6px 0; min-width:170px; box-shadow:0 4px 12px rgba(0,0,0,0.6); z-index:99999;">
+                        <div style="padding:8px 14px; cursor:pointer; font-size:11px; white-space:nowrap; color:#f2f2f2;"
+                            onclick="window.location='/'">
+                            Profile
+                        </div>
+                        <div
+                            style="padding:8px 14px; cursor:pointer; font-size:11px; white-space:nowrap; color:#f2f2f2;">
+                            Account &amp; Billing
+                        </div>
+                        <div
+                            style="padding:8px 14px; cursor:pointer; font-size:11px; white-space:nowrap; color:#f2f2f2;">
+                            Playback Settings
+                        </div>
+                        <div
+                            style="margin-top:4px; border-top:1px solid #303030; padding:8px 14px; cursor:pointer; font-size:11px; color:#ff5555;">
+                            Sign out of Streamverse
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+</html>

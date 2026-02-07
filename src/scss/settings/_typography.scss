@@ -1,0 +1,98 @@
+// src/scss/settings/_typography.scss
+@use "sass:math";
+@use "sass:map";
+// ---------------------------------------------
+// Fluid typography scale for accessibility
+// Uses rem units so font scaling in the browser works
+// Inspired by Utopia.fyi (fluid interpolation) and Josh W. Comeau’s guidance
+// ---------------------------------------------
+
+// Small and large viewport bounds (in rem)
+$fluid-min-width: 20rem;    // 320px / 16
+$fluid-max-width: 93.75rem; // 1500px / 16
+
+// Precompute viewport range as a unitless number (rem difference)
+$fluid-width-range: math.div($fluid-max-width - $fluid-min-width, 1rem);
+
+// Body font sizes at min and max viewports (in rem)
+// Using rem ensures these values respect the user’s default font size
+$fluid-min-size: 1rem;    // 16px baseline at small screens
+$fluid-max-size: 1.125rem; // 18px baseline at large screens
+
+// Modular scale ratios for min and max screens
+$fluid-min-ratio: 1;
+$fluid-max-ratio: 1.125;
+
+// Helpers to compute min and max rem values for each step
+@function fluid-step-min($step) {
+  @return $fluid-min-size * math.pow($fluid-min-ratio, $step);
+}
+
+@function fluid-step-max($step) {
+  @return $fluid-max-size * math.pow($fluid-max-ratio, $step);
+}
+
+// Generate a fluid clamp() expression for a given step
+@function fluid-type($step) {
+   $min-rem: math.div(fluid-step-min($step), 1rem);  // rem units
+  $max-rem: math.div(fluid-step-max($step), 1rem);
+  $delta: $max-rem - $min-rem;                 // difference between min and max
+  // clamp( min, calc(min + (max - min) * ( (100vw - minWidth) / (maxWidth - minWidth) )), max )
+  @return clamp(
+    #{$min-rem}rem,
+    calc(
+      #{$min-rem}rem +
+      #{$delta} * ((100vw - #{$fluid-min-width}) / #{$fluid-width-range})
+    ),
+    #{$max-rem}rem
+  );
+}
+
+// Font families
+$font-family-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+$font-family-mono: ui-monospace, "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+// Export the typography scale: step 0 = body, step 1 = h6, step 2 = h5, etc.
+// These tokens can be mapped to semantic names (e.g., h1, h2) in your base layer
+$font-size-scale: (
+  0: fluid-type(0), // body text
+  1: fluid-type(1), // small heading / subtitle
+  2: fluid-type(2), // h4
+  3: fluid-type(3), // h3
+  4: fluid-type(4), // h2
+  5: fluid-type(5)  // h1
+);
+
+
+// Line heights tuned for readability
+$line-height-scale: (
+  tight: 1.2,
+  normal: 1.5,
+  relaxed: 1.7
+);
+
+// Font weights
+$font-weight-scale: (
+  regular: 400,
+  medium: 500,
+  semibold: 600,
+  bold: 700
+);
+
+// Semantic typography tokens
+$typography-semantic: (
+  body-font-family: $font-family-sans,
+  body-size: map.get($font-size-scale, 0),
+  body-line-height: map.get($line-height-scale, normal),
+  body-weight: map.get($font-weight-scale, regular),
+
+  heading-font-family: $font-family-sans,
+  heading-weight: map.get($font-weight-scale, semibold),
+  h1-size: map.get($font-size-scale, 5),
+  h2-size: map.get($font-size-scale, 4),
+  h3-size: map.get($font-size-scale, 3),
+  h4-size: map.get($font-size-scale, 2),
+
+  code-font-family: $font-family-mono,
+  code-size: map.get($font-size-scale, 1)
+);

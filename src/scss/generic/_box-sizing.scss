@@ -1,0 +1,8 @@
+// src/scss/generic/_box-sizing.scss
+
+// Universal box sizing.  Applies to all elements and pseudo-elements.
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}

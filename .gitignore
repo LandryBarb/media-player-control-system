@@ -1,0 +1,41 @@
+### Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+### Build / output
+dist/
+build/
+.cache/
+coverage/
+parcel-cache/
+
+### Environment
+.env
+.env.*.local
+
+### OS files
+.DS_Store
+Thumbs.db
+
+### Editors / IDEs
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+### Sass / tooling
+.sass-cache/
+*.css.map
+
+### Logs
+*.log
+
+### Misc
+#$RECYCLE.BIN/
+/.DS_Store

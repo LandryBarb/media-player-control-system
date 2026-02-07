@@ -1,0 +1,32 @@
+// src/scss/main.scss
+
+// 1. ABSTRACTS: Config, Helpers, Mixins (No CSS Output)
+@use "settings";       // Global variables, colors, fonts
+@use "tools";          // Mixins, functions (breakpoints, fluid-type)
+
+// 2. GENERIC: Low-specificity resets (High-Reach)
+@use "generic";        // Resets, normalize, box-sizing
+
+// 3. THEMES: Design Tokens (CSS Custom Properties)
+@use "themes";         // :root variables for light/dark modes
+
+// 4. BASE: Unclassed HTML Elements
+@use "base";           // h1, p, a, body styling
+
+// 5. OBJECTS / LAYOUTS: Structural classes (Non-cosmetic)
+// ** ACTION: This is currently missing or mixed inside 'utilities' **
+// If you created the '_composition.scss' file, it belongs here.
+// You might want to split '_layout.scss' out of 'utilities' and put it here.
+@use "utilities/layout"; 
+// @use "layouts/composition"; // (If you add the new Composition file here)
+
+// 6. BLOCKS: Component Styles (Cosmetic + Structural)
+@use "blocks";         // Buttons, Cards, Nav, Header, Footer
+
+// 7. EXCEPTIONS: Page-specific overrides
+@use "exceptions";     // Landing page specific tweaks
+
+// 8. UTILITIES: High-specificity overrides (Trumps)
+// These usually carry !important and must come LAST.
+@use "utilities";      // Spacing, Text, Display
+// @use "utilities/motion"; // (The new Motion file belongs here)

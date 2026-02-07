@@ -1,0 +1,89 @@
+// src/scss/utilities/_layout.scss
+
+.container{
+  width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+.container-fluid {
+    width: min(calc(100vw - 2.5rem), 80rem);
+    margin-inline: auto;
+    height: inherit;
+}
+
+// Grid wrapper adds outer padding equal to the layout gap.
+.u-grid-wrap {
+  padding: var(--layout-gap-md, 1.5rem);
+}
+
+// Responsive grid.  Children become equal-width columns.
+// DO NOT use 'order' to rearrange items: keep source order for focus consistency:contentReference[oaicite:3]{index=3}.
+.u-grid {
+  display: grid;
+  // Set the minimum column width via custom property; defaults to 15rem.
+  grid-template-columns: repeat(auto-fit, minmax(var(--grid-min-col-width, 15rem), 1fr));
+  gap: var(--layout-gap-md, 1.5rem);
+
+  // Add top margin between consecutive grids using block-flow scale.
+  & + .u-grid {
+    margin-top: var(--block-flow-md, 4rem);
+  }
+}
+
+// Flexbox alternative for equal-width columns.
+// As recommended, we use margin-left for spacing and flex-wrap on small screens:contentReference[oaicite:4]{index=4}.
+.u-flex-grid {
+  display: flex;
+
+  & > * {
+    flex: 0 1 100%;
+    // left margin to create gap between items
+    &:not(:first-child) {
+      margin-left: var(--layout-gap-md, 1.5rem);
+    }
+  }
+
+  // Allow wrap when viewport is narrower than three columns:contentReference[oaicite:5]{index=5}.
+  @media (max-width: calc(var(--grid-min-col-width, 15rem) * 3)) {
+    flex-wrap: wrap;
+    & > * {
+      margin-left: 0 !important;
+      margin-top: var(--layout-gap-md, 1.5rem);
+    }
+  }
+}
+
+// 1. The Cluster: Great for tags, buttons, or navigation items
+// Adapted from older 'cluster' class to use Core spacing tokens
+.u-cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--layout-gap-md, 1rem);
+  align-items: center;
+}
+
+// 2. The Pile (Overlay): Great for hero images with text on top
+// Adapted from older 'pile' class
+.u-pile {
+  display: grid;
+  grid-template-areas: "pile";
+  place-content: center;
+
+  > * {
+    grid-area: pile;
+  }
+}
+
+// 3. The Switcher (Even Columns): Switches from horizontal to vertical based on width
+// Adapted from older 'even_columns' but made fluid
+.u-switcher {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--layout-gap-md, 1.5rem);
+
+  > * {
+    flex-grow: 1;
+    flex-basis: calc((30rem - 100%) * 999); // Magic calc for breakpoint-less switching
+  }
+}

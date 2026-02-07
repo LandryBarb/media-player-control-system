@@ -1,0 +1,18 @@
+// src/scss/tools/_breakpoints.scss
+
+$breakpoints: (
+  sm: 30em,
+  md: 50em,
+  lg: 80em
+);
+
+@mixin mq($key) {
+  $size: map.get($breakpoints, $key);
+  @if $size {
+    @media (min-width: $size) {
+      @content;
+    }
+  } @else {
+    @error "Breakpoint #{$key} not found in map.";
+  }
+}

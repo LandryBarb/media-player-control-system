@@ -1,0 +1,28 @@
+// In src/scss/tools/_mixins.scss
+
+// 1. Pseudo-element helper
+// Reduces boilerplate when creating ::after or ::before elements
+@mixin pseudo($content: '', $pos: absolute) {
+  content: $content;
+  position: $pos;
+  @content;
+}
+
+// 2. Hover Lift
+// A polished interaction effect found in your older code.
+// Updated to use your Core transition settings if available.
+@mixin hover-lift($transform: translateY(-5px)) {
+  transition: transform 350ms ease-in-out, box-shadow 350ms ease-in-out;
+
+  @include pseudo {
+    opacity: 0;
+    transition: transform 350ms ease-in-out, opacity 350ms ease-in-out;
+  }
+
+  &:hover,
+  &:focus-visible {
+    transform: $transform;
+    // You might want to bind this to your Core shadow tokens
+    // box-shadow: var(--shadow-elevation-medium); 
+  }
+}

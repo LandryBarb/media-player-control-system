@@ -1,0 +1,38 @@
+// src/scss/generic/_normalize.scss
+
+// Remove default margins on headings and block elements to avoid inconsistent spacing.
+// We leave dialogs untouched to preserve native styling.
+*:not(dialog) {
+  margin: 0;
+}
+
+// Improve media defaults: make images, videos, canvas and SVG responsive:contentReference[oaicite:4]{index=4}.
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+// Inherit font styles on form controls:contentReference[oaicite:5]{index=5}.
+// Without this, form controls fall back to system fonts, causing inconsistencies.
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+// Always show underlines nicely on unclassed links.  Skip the ink to improve readability.
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+// Remove list styles only when the list is explicitly given a 'list' role:contentReference[oaicite:6]{index=6}.
+// This avoids interfering with semantic lists used for navigation or content.
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}

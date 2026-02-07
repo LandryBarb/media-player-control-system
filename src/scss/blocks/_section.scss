@@ -1,0 +1,18 @@
+// src/scss/blocks/_section.scss
+@use "sass:map";
+@use "../settings" as settings;
+
+.section {
+  padding-block: map.get(settings.$space-scale, xl);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-border-subtle) 50%, transparent);
+}
+
+.section__header {
+  margin-block-end: map.get(settings.$space-scale, md);
+}
+
+.section__lead {
+  font-size: map.get(settings.$font-size-scale, 1);
+  color: var(--color-text-muted);
+  max-width: 40rem;
+}

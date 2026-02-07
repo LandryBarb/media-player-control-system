@@ -169,9 +169,9 @@ $colors-light-semantic: (
 // text flipped to light-on-dark, accent slightly softened.
 
 $colors-dark-semantic: (
-  "brand-primary":         map.get($colors-cinema-blue, 400),
+  "brand-primary":         map.get($colors-cinema-blue, 600),
   "brand-primary-soft":    map.get($colors-cinema-blue, 200),
-  "brand-primary-strong":  map.get($colors-cinema-blue, 500),
+  "brand-primary-strong":  map.get($colors-cinema-blue, 700),
 
   "surface":               map.get($colors-noir, 900),
   "surface-soft":          map.get($colors-noir, 800),

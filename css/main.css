@@ -133,9 +133,9 @@ ol[role=list] {
 }
 
 .theme-dark {
-  --color-brand-primary: #4e8cff;
+  --color-brand-primary: #1d4ed8;
   --color-brand-primary-soft: #a5c8ff;
-  --color-brand-primary-strong: #2563eb;
+  --color-brand-primary-strong: #163ba8;
   --color-surface: #101014;
   --color-surface-soft: #1b1b20;
   --color-surface-raised: #29292e;
@@ -375,6 +375,9 @@ blockquote {
 .site-header__brand:focus-visible {
   outline: 2px solid var(--color-focus-ring);
   outline-offset: 2px;
+}
+.site-header__brand:hover {
+  color: var(--color-brand-primary-soft);
 }
 
 .brand__logo {

@@ -59,7 +59,7 @@ pre {
 
 // Main layout shell
 .site-main {
-  max-width: 72rem;
+  
   margin-inline: auto;
   padding-inline: map.get(settings.$space-scale, lg);
   padding-block: map.get(settings.$space-scale, xl);

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Accessibility considerations summarized",
   "main": "index.js",
-    "scripts": {
+  "scripts": {
     "build:css": "sass src/scss/main.scss css/main.css --style=expanded",
     "watch:css": "sass --watch src/scss/main.scss css/main.css --style=expanded",
     "dev": "npm run watch:css"
@@ -14,5 +14,9 @@
   "type": "commonjs",
   "devDependencies": {
     "sass": "^1.97.2"
+  },
+  "dependencies": {
+    "lucide": "^0.563.0",
+    "lucide-static": "^0.563.0"
   }
 }

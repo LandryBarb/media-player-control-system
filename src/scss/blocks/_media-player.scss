@@ -1,0 +1,104 @@
+@use "sass:map";
+@use "../settings" as settings;
+
+.metadata-row{
+    display: flex;
+    gap: var(--layout-gap-md, 1.5rem);
+    align-items: center;
+}
+
+.metadata-row__item{
+    background-color: var(--color-surface-soft);
+    color: var(--color-text-subtle);
+    padding: var(--spacing-sm, 0.5rem) var(--spacing-md, 1rem);
+    border-radius: var(--border-radius-sm, 4px);
+
+}
+
+.metadata-row__item:first-child{
+    background-color: var(--color-surface-raised);
+    color: var(--color-text-main);
+    font-weight: 500;
+}
+
+// -----------
+.media-control-row {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    
+    display: flex;
+   width: 100%;
+   
+}
+
+.media-controls-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: var(--layout-gap-md, 1.5rem);
+    align-items: center;
+    padding: var(--spacing-md, 1rem);
+    background-color: var(--color-surface-raised);
+}
+
+.timeline-container{
+    position: relative;
+    display: flex;
+    width: 100%;
+    gap: var(--layout-gap-md, 1.5rem);
+    align-items: center;
+
+}
+
+.timeline-slider{
+    flex-grow: 1;
+    -webkit-appearance: none;
+    width: 100%;
+    height: 4px;
+    background: var(--color-surface-soft);
+    border-radius: 2px;
+    outline: none;
+}
+.chapter-marker{
+    width: 8px;
+    height: 8px;
+    background-color: var(--color-primary);
+    border-radius: 50%;
+    position: absolute;
+    top: -2px; // Center the marker on the timeline
+}
+
+
+
+
+// Media Control Row
+.controls-main-row{
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    width: 100%;
+}
+.controls-left{
+    grid-column: 1;
+    display: flex;
+    justify-content: space-between;
+}
+.controls-right{
+    grid-column: 3;
+}
+// Media btns
+.media-btn{
+    background: none;
+    border: none;
+    color: var(--color-text-main);
+    cursor: pointer;
+    padding: var(--spacing-sm, 0.5rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.media-btn--seek-back{
+    transform: rotate(180deg);
+}
